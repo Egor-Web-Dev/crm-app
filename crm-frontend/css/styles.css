@@ -1,0 +1,1023 @@
+/* Общие стили */
+
+:root {
+  --color-athens-gray: #f4f3f6;
+  --color-burnt-sienna: #f06a4d;
+  --color-gray-suit: #c8c5d1;
+  --color-heliotrope: #9873ff;
+  --color-melrose: #b89eff;
+  --color-mischka: #e7e5eb;
+  --color-mine-shaft: #333;
+  --color-silver: #b0b0b0;
+  --color-white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.body {
+  font-family: "Open sans", sans-serif;
+  background-color: #f5f5f5;
+  overflow-y: scroll;
+}
+
+.overflow-none {
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  max-width: 1366px;
+}
+
+.flex {
+  display: flex;
+}
+
+.btn-reset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.modal__btn {
+  position: relative;
+  align-self: center;
+  margin-bottom: 5px;
+  padding: 15px 35px;
+  color: var(--color-white);
+  background-color: var(--color-heliotrope);
+  transition: background-color .15s ease-in-out;
+}
+
+.svg-fill {
+  fill: var(--color-heliotrope);
+}
+
+.span-tooltip {
+  position: absolute;
+  left: 50%;
+  padding: 9px 12px;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%);
+  background-color: var(--color-mine-shaft);
+  transition: opacity .15s ease-in-out, visibility .15s ease-in-out;
+}
+
+.span-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 14px;
+  height: 13px;
+  background-color: var(--color-mine-shaft);
+  transform: translateX(-50%);
+  clip-path: polygon(105% 0, -5% 0, 51% 100%);
+}
+
+.message-error {
+  margin: 0;
+  color: var(--color-burnt-sienna);
+  text-align: center;
+  opacity: 0;
+  animation: appearance .15s linear forwards;
+}
+
+/* Секция хэдер */
+
+.header {
+  background: var(--color-white);
+  box-shadow: 0px 3.38629px 5.64383px 0px rgba(176, 190, 197, 0.32), 0px 9.03012px 27.09036px 0px rgba(176, 190, 197, 0.32);
+}
+
+.header__content {
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.header__logo {
+  margin-right: 53px;
+  font-size: 0;
+  outline: none;
+}
+
+.header__input {
+  padding: 0 15px;
+  width: 581px;
+  min-height: 44px;
+  border: 1px solid rgba(51, 51, 51, 0.20);
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.header__input::placeholder {
+  color: var(--color-silver);
+}
+
+.header__input:focus {
+  border-color: var(--color-heliotrope);
+  box-shadow: 0 0 2px 0 var(--color-melrose);
+}
+
+/* Секция клиенты, th таблицы */
+
+.clients {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+.clients__content {
+  align-items: center;
+  flex-direction: column;
+  padding-right: 70px;
+  padding-left: 70px;
+}
+
+.clients__heading {
+  align-self: baseline;
+  margin-bottom: 17px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-mine-shaft);
+}
+
+.clients__wrapper {
+  width: 100%;
+}
+
+.clients__table {
+  margin-bottom: 40px;
+  width: 100%;
+  min-width: 728px;
+  border-spacing: 0;
+  overflow-x: auto;
+}
+
+.thead {
+  display: block;
+  padding-left: 20px;
+  font-size: 12px;
+  line-height: normal;
+  color: var(--color-silver);
+  background-color: transparent;
+}
+
+.thead__th {
+  align-items: center;
+  padding: 10px 0;
+  font-weight: 400;
+  text-align: left;
+}
+
+.sorting {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: color .15s ease-in-out;
+  outline: none;
+}
+
+.sorting:hover {
+  color: var(--color-mine-shaft);
+}
+
+.sorting:focus {
+  color: var(--color-mine-shaft);
+}
+
+.sorting:active {
+  color: var(--color-silver);
+}
+
+.thead__cell-id,
+.name__span {
+  color: var(--color-heliotrope);
+}
+
+.thead__cell-id,
+.client__id {
+  width: 7%;
+}
+
+.thead__cell-name {
+  width: 31.5%;
+}
+
+.thead__cell-creation,
+.clients__created {
+  width: 15%;
+}
+
+.thead__cell-changes {
+  width: 14.5%;
+}
+
+.thead__cell-contacts,
+.clients__contacts {
+  width: 14%;
+}
+
+.creation__span-svg,
+.changes__span-svg {
+  padding-left: 3px;
+}
+
+.id__span-svg svg,
+.creation__span-svg svg,
+.changes__span-svg svg {
+  vertical-align: middle;
+}
+
+.span-arrow {
+  transition: fill .15s ease-in-out, opacity .15s ease-in-out;
+}
+
+.name__span {
+  align-items: center;
+  font-size: 10px;
+}
+
+.thead__cell-id:active .id__span-svg,
+.thead__cell-name:active .name__span,
+.thead__cell-creation:active .creation__span-svg,
+.thead__cell-changes:active .changes__span-svg {
+  opacity: .7;
+}
+
+.span-arrow svg {
+  transition: transform .15s ease-in-out;
+}
+
+.sort-down .span-arrow svg {
+  transform: rotate(180deg);
+}
+
+.clients__tbody {
+  position: relative;
+  font-size: 14px;
+  color: var(--color-mine-shaft);
+  background-color: var(--color-white);
+}
+
+.clients__btn-add {
+  width: 216px;
+  min-height: 44px;
+  border: 1px solid var(--color-heliotrope);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-heliotrope);
+  background-color: transparent;
+  outline: none;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, opacity .1s ease-in-out;
+}
+
+.clients__btn-add:hover,
+.clients__btn-add:focus {
+  color: var(--color-white);
+  background-color: var(--color-heliotrope);
+}
+
+.clients__btn-add:active {
+  opacity: .7;
+}
+
+.clients__btn-svg {
+  margin-right: 10px;
+  vertical-align: middle;
+  transition: fill .15s ease-in-out, opacity .15s ease-in-out;
+}
+
+.clients__btn-add:hover .clients__btn-svg,
+.clients__btn-add:focus .clients__btn-svg {
+  fill: var(--color-white);
+}
+
+.clients__message-error {
+  font-size: 16px;
+  line-height: 100px;
+}
+
+/* td таблицы */
+
+.table__span-time {
+  color: var(--color-silver);
+}
+
+.contacts__item {
+  position: relative;
+}
+
+.clients__item {
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--color-gray-suit);
+  min-height: 60px;
+  animation: appearance .15s linear forwards;
+}
+
+.client__id {
+  font-size: 12px;
+  color: var(--color-silver);
+}
+
+.clients__full-name,
+.clients__created,
+.clients__changed,
+.clients__contacts {
+  flex-wrap: wrap;
+}
+
+.clients__full-name {
+  width: 32%;
+  color: var(--color-mine-shaft);
+}
+
+.clients__full-name span {
+  display: inline-block;
+}
+
+.clients__full-name span:not(:last-child) {
+  margin-right: 5px;
+}
+
+.clients__changed {
+  padding-left: 5px;
+  width: 15%;
+}
+
+.created__date,
+.changed__date {
+  margin-right: 7px;
+  color: var(--color-mine-shaft);
+}
+
+.created__time,
+.changed__time {
+  color: var(--color-silver);
+}
+
+.clients__contacts {
+  gap: 7px;
+  max-width: 110px;
+}
+
+.contacts__link {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  outline: none;
+  animation: appearance .2s linear forwards;
+}
+
+.contacts__link g,
+.contacts__link path {
+  transition: opacity .15s ease-in-out;
+}
+
+.contacts__link:hover g,
+.contacts__link:hover path,
+.contacts__link:focus g,
+.contacts__link:focus path {
+  opacity: 1;
+}
+
+.contacts__link:active g,
+.contacts__link:active path {
+  opacity: .5;
+}
+
+.clients__contacts-btn {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--color-heliotrope);
+  border-radius: 100%;
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--color-mine-shaft);
+  outline: none;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, opacity .15s ease-in-out;
+}
+
+.clients__contacts-btn:hover,
+.clients__contacts-btn:focus {
+  color: var(--color-white);
+  background-color: var(--color-heliotrope);
+}
+
+.clients__contacts-btn:active {
+  opacity: .7;
+}
+
+.clients__actions-btn {
+  position: relative;
+  display: inline-block;
+  padding-left: 18px;
+  color: var(--color-mine-shaft);
+  background-repeat: no-repeat;
+  outline: none;
+}
+
+.clients__actions {
+  margin-left: auto;
+}
+
+.clients__edit {
+  margin-right: 29px;
+  background-image: url('../image/edit.svg');
+  background-position: left bottom;
+  transition: color .15s ease-in-out;
+}
+
+.clients__delete {
+  background-image: url('../image/cancel.svg');
+  background-position: left top;
+  transition: color .15s ease-in-out;
+}
+
+.clients__edit:hover,
+.clients__edit:focus {
+  color: var(--color-heliotrope);
+}
+
+.clients__delete:hover,
+.clients__delete:focus {
+  color: var(--color-burnt-sienna);
+}
+
+/* Модальное окно */
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  overflow-y: auto;
+  cursor: pointer;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 25px 30px;
+  width: 450px;
+  background-color: var(--color-white);
+  box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.15);
+  transform: translate(-50%, -49%) scale(0);
+  opacity: 0;
+  cursor: auto;
+  transition: top 1s ease-in-out;
+}
+
+.modal-active-container {
+  animation: appearance .15s linear .1s forwards;
+}
+
+.modal-active-content {
+  animation: appearance .15s linear .1s forwards, scaling .15s linear .15s forwards;
+}
+
+@keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  75% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaling {
+  0% {
+    transform: translate(-50%, -49%) scale(0);
+  }
+
+  25% {
+    transform: translate(-50%, -49%) scale(.25);
+  }
+
+  50% {
+    transform: translate(-50%, -49%) scale(.5);
+  }
+
+  75% {
+    transform: translate(-50%, -49%) scale(.75);
+  }
+
+  100% {
+    transform: translate(-50%, -49%) scale(1);
+  }
+}
+
+.modal__heading {
+  margin: 0 0 32px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-mine-shaft);
+}
+
+.modal__id {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-silver);
+}
+
+.modal__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  fill: var(--color-silver);
+  transition: fill .15s ease-in-out;
+}
+
+.modal__close:hover {
+  fill: var(--color-heliotrope);
+}
+
+.modal__close:active {
+  fill: var(--color-silver);
+}
+
+.modal__form {
+  flex-direction: column;
+  width: 390px;
+}
+
+.modal__group-input {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.modal__input {
+  display: block;
+  width: 100%;
+  height: 26px;
+  border: none;
+  border-bottom: 1px solid var(--color-gray-suit);
+  font-size: 14px;
+  color: var(--color-mine-shaft);
+  outline: none;
+}
+
+.modal__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 5px;
+  height: 100%;
+  border: 1px solid transparent;
+  font-size: 14px;
+  color: var(--color-silver);
+  pointer-events: none;
+  transform-origin: -20px 0;
+  transition: transform .05s linear;
+}
+
+.modal__input::placeholder {
+  font-size: 0;
+}
+
+.modal__label-star {
+  color: var(--color-heliotrope);
+}
+
+.modal__input:focus~.modal__label,
+.modal__input:not(:placeholder-shown)~.modal__label {
+  transform: scale(.85) translate(2px, -20px);
+}
+
+.modal__contact {
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  margin: 0 -30px;
+  margin-bottom: 8px;
+  padding: 9px 0;
+  background-color: rgba(200, 197, 209, .3);
+}
+
+.modal__btn-contact,
+.modal__btn-save {
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+}
+
+.modal__btn-contact {
+  position: relative;
+  display: none;
+  padding-left: 20px;
+  color: var(--color-mine-shaft);
+  background-color: transparent;
+  transition: color .15s ease-in-out;
+}
+
+.modal__btn-contact.modal__btn-contact--active {
+  display: block;
+}
+
+.modal__btn-contact:hover,
+.modal__btn-contact:focus {
+  color: var(--color-heliotrope);
+}
+
+.modal__btn-contact:active {
+  color: var(--color-melrose);
+}
+
+.btn-contact__svg {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.btn-contact__svg-hover,
+.btn-contact__svg-default {
+  transition: opacity .15s ease-in-out, visibility .15s ease-in-out;
+}
+
+.btn-contact__svg-hover {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal__btn-contact:hover .btn-contact__svg-hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__btn-contact:hover .btn-contact__svg-default {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal__btn-contact:active .btn-contact__svg-hover {
+  opacity: .5;
+}
+
+.modal__btn-save:hover,
+.modal__btn-save:focus,
+.delete-modal__delete:hover,
+.delete-modal__delete:focus {
+  background-color: #8052FF;
+}
+
+.modal__btn-save:active,
+.delete-modal__delete:active {
+  background-color: var(--color-melrose);
+}
+
+.modal__btn-back {
+  align-self: center;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-mine-shaft);
+  text-decoration: underline;
+  transition: color .15s ease-in-out;
+}
+
+.modal__btn-back:hover {
+  color: #000;
+}
+
+.modal__btn-back:active {
+  color: var(--color-mine-shaft);
+  text-decoration: none;
+}
+
+/* Блок контакты модального окна */
+
+.contact {
+  align-items: center;
+  width: 390px;
+}
+
+.contact:last-of-type {
+  margin-bottom: 10px;
+}
+
+.contact__type {
+  position: relative;
+}
+
+.contact__name {
+  position: relative;
+  z-index: 1;
+  padding: 10px 60px 10px 13px;
+  width: 134px;
+  height: 37px;
+  text-align: left;
+  background-color: var(--color-mischka);
+  cursor: pointer;
+  transition: background-color .15s ease-in-out;
+}
+
+.contact__name,
+.contact__list {
+  border: 1px solid var(--color-gray-suit);
+  font-size: 12px;
+  color: var(--color-mine-shaft);
+}
+
+.contact__name::before {
+  content: '';
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  background: url('../image/contact-arrow-svg.svg') no-repeat center center;
+  transition: transform .15s ease-in-out;
+}
+
+.contact__name:hover {
+  background-color: var(--color-gary-suit);
+}
+
+.contact__name:active {
+  background-color: var(--color-mischka);
+}
+
+.contact__list--active.contact__name::before {
+  transform: rotate(-180deg);
+}
+
+.contact__list {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  z-index: 2;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--color-athens-gray);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20%);
+  transition: opacity .15s ease-in-out, visibility .15s ease-in-out, transform .1s ease-in-out;
+}
+
+.contact__list.contact__list--active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.contact__item {
+  padding: 9px 11px 7px 12px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  transition: background-color .15s ease-in-out;
+}
+
+.contact__item:hover,
+.contact__item:focus {
+  background-color: var(--color-mischka);
+}
+
+.contact__input {
+  display: block;
+  padding-left: 12px;
+  border: 1px solid var(--color-gray-suit);
+  border-right: none;
+  border-left: none;
+  width: 100%;
+  height: 37px;
+  font-weight: 600;
+  color: var(--color-mine-shaft);
+  background-color: transparent;
+}
+
+.contact__input {
+  font-size: 14px;
+}
+
+.contact__input::placeholder {
+  font-weight: 400;
+  color: var(--color-silver);
+}
+
+.contact__delete {
+  position: relative;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  padding: 9px 4.5px;
+  border: 1px solid var(--color-gray-suit);
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-mischka);
+  cursor: pointer;
+  transition: border-color .15s ease-in-out;
+}
+
+.contact__delete svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: var(--color-silver);
+  transition: fill .15s ease-in-out;
+}
+
+.modal__contact-tooltip {
+  top: -27px;
+  min-width: 133px;
+}
+
+.contact__delete:hover {
+  border-color: var(--color-burnt-sienna);
+}
+
+.contact__delete:hover svg {
+  fill: var(--color-burnt-sienna);
+}
+
+.contact__delete:hover .modal__contact-tooltip,
+.contact__delete:focus .modal__contact-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Окно удаления */
+
+.delete-modal__content {
+  align-items: center;
+  flex-direction: column;
+}
+
+.delete-modal__title {
+  margin-bottom: 16px;
+}
+
+.delete-modal__text {
+  margin: 0;
+  margin-bottom: 25px;
+  max-width: 275px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: var(--color-mine-shaft);
+}
+
+.delete-modal__delete,
+.delete-modal__back {
+  display: block;
+}
+
+.delete-modal__delete {
+  position: relative;
+  align-self: center;
+  margin-bottom: 5px;
+  padding: 14px 33px;
+  outline: none;
+}
+
+.delete-modal__back {
+  align-self: center;
+  padding-bottom: 1px;
+  font-weight: 400;
+  color: var(--color-mine-shaft);
+  text-decoration-line: underline;
+}
+
+.modal__block-error {
+  align-self: center;
+  margin: 0 0 9px 0;
+  min-height: 8px;
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--color-burnt-sienna);
+}
+
+/* Тултипы контактов */
+
+.clients__contact-tooltip {
+  top: -41px;
+  z-index: 10;
+  align-items: center;
+  width: auto;
+}
+
+.contact-tooltip__type {
+  display: block;
+  margin-right: 2px;
+  color: var(--color-white);
+}
+
+.contact-tooltip__value {
+  display: block;
+  font-weight: 700;
+  color: var(--color-melrose);
+  text-decoration: underline;
+}
+
+.contacts__link:hover .clients__contact-tooltip,
+.contacts__link:focus .clients__contact-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Прелоадер и спиннер */
+
+.preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  background-color: var(--color-white);
+}
+
+.loader svg {
+  animation: rotation 1s linear infinite;
+}
+
+.modal__spinner {
+  position: absolute;
+  top: 15px;
+  left: 18px;
+  display: none;
+}
+
+.modal__spinner svg {
+  stroke: var(--color-melrose);
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.actions__wait {
+  background-image: none;
+}
+
+.actions__spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.actions__spinner svg {
+  animation: rotation 1s linear infinite;
+}
+
+.clients__edit .actions__spinner svg {
+  stroke: var(--color-heliotrope);
+}
+
+.clients__delete .actions__spinner svg {
+  stroke: var(--color-burnt-sienna);
+}
